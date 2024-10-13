@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #add8e6; /* Light blue background */
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+            color: black; /* Text color changed to black */
+        }
+
+        .birthday-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff69b4;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        .birthday-link:hover {
+            background-color: #ff1493;
+        }
+
+        .cloud {
+            width: 80px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .cloud::before {
+            width: 60px;
+            height: 60px;
+            top: -30px;
+            left: -15px;
+        }
+
+        .cloud::after {
+            width: 100px;
+            height: 100px;
+            top: -50px;
+            left: 30px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(-100px) translateX(0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(600px) translateX(100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Click the link to see a special birthday message!</h1>
+
+    <a href="#" class="birthday-link" onclick="wishHappyBirthday()">Click me!</a>
+
+    <script>
+        function wishHappyBirthday() {
+            alert('Happy Birthday, Phương Uyên! 🎉🎂\n\n' +
+                  'Wishing you the happiest of birthdays! 🎉🎂🎈\n' + 
+                  'May this day be filled with smiles, love, and endless happiness,\n' + 
+                  'just like the way you make me feel every single day.\n\n' +
+                  'Because time is so urgent, I\'ve only prepared this much. I hope you like it.\n' +
+                  'Even though it\'s not very complete, I\'ll make it up to you on Christmas.\n\n' +
+                  '- Minh ❤️');
+            startClouds();
+        }
+
+        function startClouds() {
+            for (let i = 0; i < 20; i++) {
+                let cloud = document.createElement('div');
+                cloud.classList.add('cloud');
+                cloud.style.left = Math.random() * window.innerWidth + 'px';
+                cloud.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(cloud);
+            }
+        }
+    </script>
+    
+</body>
+</html>
